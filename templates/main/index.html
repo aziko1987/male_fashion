@@ -1,30 +1,31 @@
 {% extends 'layouts/base.html' %}
- {% load static %}
 
- {% block content %}
+{% load static %}
+
+{% block content %}
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
             {% for banner in banners %}
-                <div class="hero__items set-bg" data-setbg="{{ banner.baner_image.url }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-5 col-lg-7 col-md-8">
-                            <div class="hero__text">
-                                <h6>{{ banner.colletion }}</h6>
-                                <h2>{{ banner.title }}</h2>
-                                <p>{{ banner.description }}</p>
-                                <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
-                                <div class="hero__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                <div class="hero__items set-bg" data-setbg="{{ banner.banner_image.url }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-7 col-md-8">
+                                <div class="hero__text">
+                                    <h6>{{ banner.colletion }}</h6>
+                                    <h2>{{ banner.title }}</h2>
+                                    <p>{{ banner.description }}</p>
+                                    <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                    <div class="hero__social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             {% endfor %}
         </div>
@@ -88,7 +89,7 @@
             <div class="row product__filter">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-1.jpg' %}">
                             <span class="label">New</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
@@ -123,7 +124,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-2.jpg' %}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
                                 <li><a href="#"><img src="{% static 'main/img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
@@ -157,7 +158,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-3.jpg' %}">
                             <span class="label">Sale</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
@@ -192,7 +193,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-4.jpg' %}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
                                 <li><a href="#"><img src="{% static 'main/img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
@@ -226,7 +227,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-5.jpg' %}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
                                 <li><a href="#"><img src="{% static 'main/img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
@@ -260,7 +261,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-6.jpg' %}">
                             <span class="label">Sale</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
@@ -295,7 +296,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-7.jpg' %}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
                                 <li><a href="#"><img src="{% static 'main/img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
@@ -329,7 +330,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'main/img/product/product-8.jpg' %}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}" alt=""></a></li>
                                 <li><a href="#"><img src="{% static 'main/img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
@@ -380,7 +381,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>
+                        <div class="blog__item__pic set-bg" data-setbg="{% static 'main/img/blog/blog-1.jpg' %}"></div>
                         <div class="blog__item__text">
                             <span><img src="{% static 'main/img/icon/calendar.png' %}" alt=""> 16 February 2020</span>
                             <h5>What Curling Irons Are The Best Ones</h5>
@@ -390,7 +391,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-2.jpg"></div>
+                        <div class="blog__item__pic set-bg" data-setbg="{% static 'main/img/blog/blog-2.jpg' %}"></div>
                         <div class="blog__item__text">
                             <span><img src="{% static 'main/img/icon/calendar.png' %}" alt=""> 21 February 2020</span>
                             <h5>Eternity Bands Do Last Forever</h5>
@@ -400,7 +401,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-3.jpg"></div>
+                        <div class="blog__item__pic set-bg" data-setbg="{% static 'main/img/blog/blog-3.jpg' %}"></div>
                         <div class="blog__item__text">
                             <span><img src="{% static 'main/img/icon/calendar.png' %}" alt=""> 28 February 2020</span>
                             <h5>The Health Benefits Of Sunglasses</h5>

@@ -1,5 +1,5 @@
-
 from django.db import models
+
 
 class BannerModel(models.Model):
     collection = models.CharField(max_length=255)

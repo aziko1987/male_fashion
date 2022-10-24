@@ -57,8 +57,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -66,7 +64,7 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'), 
+        'PORT': config('DB_PORT'),
     }
 }
 
@@ -93,7 +91,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / 'static'
@@ -104,20 +101,15 @@ MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.UserModel'
-
 
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full'
     },
 }
-
-
-
 
 try:
     from .local_settings import *

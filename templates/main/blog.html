@@ -21,18 +21,33 @@
             <div class="row">
                 {% for blog in object_list %}
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="{{ blog.main_image.url }}"></div>
-                        <div class="blog__item__text">
-                            <span><img src="{% static 'main/img/icon/calendar.png' %}" alt=""> {{ blog.created_at|date:"d F Y" }}</span>
-                            <h5>{{ block.title }}</h5>
-                            <a href="{% url 'blogs:detail' pk=blog.pk %}">Read More</a>
+                        <div class="blog__item">
+                            <div class="blog__item__pic set-bg" data-setbg="{{ blog.main_image.url }}"></div>
+                            <div class="blog__item__text">
+                                <span><img src="{% static 'main/img/icon/calendar.png' %}"
+                                           alt=""> {{ blog.created_at|date:"d F Y" }}</span>
+                                <h5>{{ block.title }}</h5>
+                                <a href="{% url 'blogs:detail' pk=blog.pk %}">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
         </div>
+        {% if page_obj.paginator.count >= 6 %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product__pagination">
+
+                        {% for page in page_obj.paginator.page_range %}
+                            <a class="{% if page == page_obj.number %}active{% endif %}"
+                               href="?page={{ page }}">{{ page }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
     </section>
     <!-- Blog Section End -->
 

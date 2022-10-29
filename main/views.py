@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, CreateView
 from .models import BannerModel
 from .forms import ContactForm
 
+
 class ContactView(TemplateView):
     template_name = 'main/contact.html'
 

@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 
 class BlogListView(ListView):
     template_name = 'main/blog.html'
+    paginate_by = 6
 
     def get_queryset(self):
         qs = BlogModel.objects.all()
@@ -18,12 +19,11 @@ class BlogListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        tag =  self.request.GET.get('tag', '')
+        tag = self.request.GET.get('tag', '')
         if tag:
             context['tag'] = get_object_or_404(BlogTagsModel, pk=tag)
 
         return context
-
 
 
 class BlogDetailView(DetailView):

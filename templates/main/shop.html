@@ -59,7 +59,8 @@
                                             <span class="label">Sale</span>
                                         {% endif %}
                                         {% if object.is_new %}
-                                            <span style="color: #111111; width: 66px; height: 22.5px " class="label bg-white {% if object.is_discount %} mt-4 {% endif %}">New</span>
+                                            <span style="color: #111111; width: 66px; height: 22.5px "
+                                                  class="label bg-white {% if object.is_discount %} mt-4 {% endif %}">New</span>
                                         {% endif %}
                                         <ul class="product__hover">
                                             <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}"
@@ -140,5 +141,18 @@
             }
             window.location.search = searchParams.toString()
         }
+
+        $(".js-range-slider").ionRangeSlider({
+            type: "double",
+            min: {{ min }},
+            max: {{ max }},
+            from: 40,
+            to: 80,
+            prefix: "$",
+            onFinish(data) {
+                addSearchParams('price', data.from.toString() + ';' + data.to.toString())
+            }
+        });
+
     </script>
 {% endblock %}

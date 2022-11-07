@@ -43,4 +43,7 @@ class ProductListView(ListView):
         if price:
             price = price.split(';')
             qs = qs.filter(real_price__gte=price[0], real_price__lte=price[1])
+        sort = self.request.GET.get('sort')
+        if sort:
+            qs = qs.order_by(sort)
         return qs

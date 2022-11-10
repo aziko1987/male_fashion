@@ -1,7 +1,22 @@
-from django.shortcuts import render, reverse
-from django.views.generic import TemplateView, CreateView
-from .models import BannerModel
+from django.shortcuts import render, reverse, redirect
+from django.views.generic import TemplateView, CreateView, ListView
+from .models import BannerModel, WishListModel
 from .forms import ContactForm
+from products.models import ProductModel
+
+
+class WishlistListView(ListView):
+    template_name = 'main/wishlist.html'
+
+    def get_queryset(self):
+        return ProductModel.objects.filter(wishlistmodel__user=self.user)
+
+
+def wishlist_view(request, id):
+    product = ProductModel.objects.get(id=id)
+    WishListModel.create_or_delete(request.user, product)
+    path = request.GET.get('next')
+    return redirect(path)
 
 
 class ContactView(TemplateView):

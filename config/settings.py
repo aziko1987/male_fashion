@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'crispy_forms',
 
     'users',
     'main',
@@ -107,6 +108,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.UserModel'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CKEDITOR_CONFIGS = {
     'default': {

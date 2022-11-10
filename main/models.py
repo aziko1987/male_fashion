@@ -1,4 +1,26 @@
 from django.db import models
+from products.models import ProductModel
+from users.models import UserModel
+from django.db import IntegrityError
+
+
+class WishListModel(models.Model):
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    product = models.ForeignKey(ProductModel, on_delete=models.CASCADE)
+
+    @staticmethod
+    def create_or_delete(user, product):
+        try:
+            WishListModel.objects.create(user=user, product=product)
+        except IntegrityError:
+            WishListModel.objects.get(user=user, product=product).delete()
+    def __str__(self):
+        return f"{self.user} {self.product}"
+
+    class Meta:
+        verbose_name = 'wishlist'
+        verbose_name_plural = 'wishlists'
+        unique_together = ('user', 'product')
 
 
 class ContactMessageModel(models.Model):
@@ -13,6 +35,7 @@ class ContactMessageModel(models.Model):
     class Meta:
         verbose_name = 'comment'
         verbose_name_plural = 'comments'
+
 
 class BannerModel(models.Model):
     collection = models.CharField(max_length=255)

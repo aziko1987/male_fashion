@@ -43,8 +43,12 @@
                                     <p>Sort by Price:</p>
                                     <select onchange="addSearchParams('sort', this.value)">
                                         <option value="">------------</option>
-                                        <option {% if request.GET.sort == 'real_price' %}selected{% endif %} value="real_price">Low To High</option>
-                                        <option {% if request.GET.sort == '-real_price' %}selected{% endif %} value="-real_price">High To Low</option>
+                                        <option {% if request.GET.sort == 'real_price' %}selected{% endif %}
+                                                value="real_price">Low To High
+                                        </option>
+                                        <option {% if request.GET.sort == '-real_price' %}selected{% endif %}
+                                                value="-real_price">High To Low
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -63,9 +67,25 @@
                                                   class="label bg-white {% if object.is_discount %} mt-4 {% endif %}">New</span>
                                         {% endif %}
                                         <ul class="product__hover">
-                                            <li><a href="#"><img src="{% static 'main/img/icon/heart.png' %}"
-                                                                 alt=""></a></li>
-
+                                            {% if request.user.is_authenticated %}
+                                                {% if request.user|is_wishlist:object %}
+                                                    <li>
+                                                        <a href="{% url 'main:wishlist' id=object.id %}?next={{ request.path }}"><img
+                                                                src="{% static 'main/img/heart.png' %}"
+                                                                alt=""></a>
+                                                    </li>
+                                                {% else %}
+                                                    <li>
+                                                        <a href="{% url 'main:wishlist' id=object.id %}?next={{ request.path }}"><img
+                                                                src="{% static 'main/img/icon/heart.png' %}"
+                                                                alt=""></a></li>
+                                                {% endif %}
+                                            {% else %}
+                                                <li><a href="{% url 'users:login' %}"><img
+                                                        src="{% static 'main/img/icon/heart.png' %}"
+                                                        alt=""></a>
+                                                </li>
+                                            {% endif %}
                                             <li><a href="#"><img src="{% static 'main/img/icon/search.png' %}"
                                                                  alt=""></a></li>
                                         </ul>
